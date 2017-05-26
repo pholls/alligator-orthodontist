@@ -52,7 +52,15 @@ class Mouth extends React.Component {
       </div>
     );
   }
-
-
 }
+
+class Game extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      
+    }
+  }
+}
+
 export default Mouth;
