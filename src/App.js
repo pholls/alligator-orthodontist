@@ -18,4 +18,41 @@ class App extends Component {
   }
 }
 
-export default App;
+
+function Tooth(props) {
+  return (
+    <button className="tooth" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+
+class Mouth extends React.Component {
+  renderTooth(i) {
+    return (
+      <Tooth
+        value={this.props.teeth[i]}
+        onClick={() => this.props.onClick(i)}
+      />
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="status">status without curlies</div>
+        <div className="teeth-row">
+          {this.renderTooth(0)}
+          {this.renderTooth(1)}
+          {this.renderTooth(2)}
+          {this.renderTooth(3)}
+          {this.renderTooth(4)}
+          {this.renderTooth(5)}
+        </div>
+      </div>
+    );
+  }
+
+
+}
+export default Mouth;
