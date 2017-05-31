@@ -57,10 +57,21 @@ class Mouth extends React.Component {
 class Game extends React.Component {
   constructor() {
     super();
-    this.state = {
-      
-    }
+    this.teeth = Array(6).fill(null);
   }
+    // randomly assign an index of the teeth array to be the trigger
+
+  render() {
+    return (
+      <div className="game-mouth">
+        <Mouth
+          teeth={this.teeth}
+          onClick={(i) => this.handleClick(i)}
+        />
+      </div>
+    )
+  }
+
 }
 
-export default Mouth;
+export default Game;
