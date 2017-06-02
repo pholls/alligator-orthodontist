@@ -57,8 +57,8 @@ class Game extends Component {
   constructor() {
     super();
     this.teeth = Array(6).fill("up");
+    this.trigger = Math.floor(Math.random() * this.teeth.length)
   }
-    // randomly assign an index of the teeth array to be the trigger
 
   render() {
     return (
