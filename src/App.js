@@ -63,26 +63,24 @@ class Game extends Component {
 
   handleClick(i) {
     console.log('tooth clicked:', i);
-    // compare i with the Game.trigger property
     if (this.trigger === i) {
-      // if i === trigger, you lose (close mouth)
       console.log('u lose');
       // call an "endGame" function
     } else if (this.teeth[i] === "down") {
-      // if tooth is already down
-      // do nothing
       return;
     } else {
       console.log("ELSE")
-      console.log(this.teeth[i])
       this.teeth[i] = "down";
-      console.log(this.teeth[i])
-      console.log(this.teeth)
       // if tooth is up, change tooth class to "down"
-    }
+    } // if one tooth remains, player wins
+    this.render();
   }
 
+  // GAME IS RENDERING AGAIN, BUT MOUTH IS NOT UPDATING
+  // THE TEETH OBJECTS
+
   render() {
+    console.log("RENDERING GAME", this.teeth)
     return (
       <div className="game-mouth">
         <Mouth
