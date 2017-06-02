@@ -39,7 +39,7 @@ class Mouth extends Component {
   render() {
     return (
       <div>
-        <div className="status">status without curlies</div>
+        <div className="status">{this.props.status}</div>
         <div className="teeth-row">
           {this.renderTooth(0)}
           {this.renderTooth(1)}
@@ -57,13 +57,36 @@ class Game extends Component {
   constructor() {
     super();
     this.teeth = Array(6).fill("up");
-    this.trigger = Math.floor(Math.random() * this.teeth.length)
+    this.trigger = Math.floor(Math.random() * this.teeth.length);
+    this.status = "u playin";
+  }
+
+  handleClick(i) {
+    console.log('tooth clicked:', i);
+    // compare i with the Game.trigger property
+    if (this.trigger === i) {
+      // if i === trigger, you lose (close mouth)
+      console.log('u lose');
+      // call an "endGame" function
+    } else if (this.teeth[i] === "down") {
+      // if tooth is already down
+      // do nothing
+      return;
+    } else {
+      console.log("ELSE")
+      console.log(this.teeth[i])
+      this.teeth[i] = "down";
+      console.log(this.teeth[i])
+      console.log(this.teeth)
+      // if tooth is up, change tooth class to "down"
+    }
   }
 
   render() {
     return (
       <div className="game-mouth">
         <Mouth
+          status={this.status}
           teeth={this.teeth}
           onClick={(i) => this.handleClick(i)}
         />
