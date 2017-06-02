@@ -21,13 +21,12 @@ import './App.css';
 
 function Tooth(props) {
   return (
-    <button className="tooth" onClick={props.onClick}>
-      {props.value}
+    <button className={"tooth " + props.value} onClick={props.onClick}>
     </button>
   );
 }
 
-class Mouth extends React.Component {
+class Mouth extends Component {
   renderTooth(i) {
     return (
       <Tooth
@@ -54,10 +53,10 @@ class Mouth extends React.Component {
   }
 }
 
-class Game extends React.Component {
+class Game extends Component {
   constructor() {
     super();
-    this.teeth = Array(6).fill(null);
+    this.teeth = Array(6).fill("up");
   }
     // randomly assign an index of the teeth array to be the trigger
 
