@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 5s linear;
   height: 80px;
 }
 
@@ -16,6 +16,17 @@
 
 .App-intro {
   font-size: large;
+}
+
+.tooth {
+
+}
+
+.up {
+}
+
+.down {
+  background-color: black;
 }
 
 @keyframes App-logo-spin {
