@@ -1,23 +1,5 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <div className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h2>Welcome to React</h2>
-//         </div>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
-
 
 function Tooth(props) {
   return (
@@ -61,26 +43,37 @@ class Game extends Component {
     this.status = "u playin";
   }
 
+  endGame() {
+    // FINISH THIS FUNCTION:
+    // turn off event handler (unbind onClick)
+    // add a link that says "play again?"
+  }
+
+  loseGame() {
+
+  }
+
+  winGame() {
+
+  }
+
   handleClick(i) {
-    console.log('tooth clicked:', i);
     if (this.trigger === i) {
-      console.log('u lose');
-      // call an "endGame" function
+      this.status = "u lose";
+      this.endGame();
     } else if (this.teeth[i] === "down") {
       return;
     } else {
-      console.log("ELSE")
       this.teeth[i] = "down";
-      // if tooth is up, change tooth class to "down"
-    } // if one tooth remains, player wins
-    this.render();
+    }
+    // DEFINE FUNCTION: determine if player won
+    // exactly one member of this.teeth === "up" AND that index === this.trigger
+    // if true, player wins (call endGame)
+    this.forceUpdate();
   }
 
-  // GAME IS RENDERING AGAIN, BUT MOUTH IS NOT UPDATING
-  // THE TEETH OBJECTS
-
   render() {
-    console.log("RENDERING GAME", this.teeth)
+    console.log("Trigger:", this.trigger)
     return (
       <div className="game-mouth">
         <Mouth
